@@ -298,6 +298,7 @@ body{
 .stagger-children.visible > *:nth-child(3){opacity:1;transform:none;transition-delay:.25s}
 .stagger-children.visible > *:nth-child(4){opacity:1;transform:none;transition-delay:.35s}
 .stagger-children.visible > *:nth-child(5){opacity:1;transform:none;transition-delay:.45s}
+.stagger-children.visible > *:nth-child(6){opacity:1;transform:none;transition-delay:.55s}
 
 /* ─── ABOUT ─── */
 .about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
@@ -451,6 +452,44 @@ body{
   color:var(--cream);transform:translateY(-2px);
 }
 
+/* ─── PROJECTS ─── */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(244,240,232,.08)}
+.proj-card{
+  background:var(--dark2);padding:2.5rem 2rem;
+  position:relative;overflow:hidden;
+}
+.proj-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--maroon),var(--gold));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+}
+.proj-card:hover::before{transform:scaleX(1)}
+.proj-card:hover{background:var(--dark3)}
+.proj-number{
+  font-size:.68rem;font-weight:700;letter-spacing:.14em;
+  color:rgba(201,168,76,.5);margin-bottom:1.5rem;
+}
+.proj-title{
+  font-family:var(--font-serif);font-size:1.35rem;font-weight:600;
+  color:var(--text-light);line-height:1.25;margin-bottom:.75rem;
+}
+.proj-tech{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.25rem}
+.proj-tech-tag{
+  font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(201,168,76,.3);
+  padding:2px 10px;background:rgba(201,168,76,.07);
+}
+.proj-bullets{padding-left:1rem;display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+.proj-bullets li{font-size:.82rem;color:rgba(244,240,232,.55);line-height:1.5}
+.proj-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;
+  border-bottom:1px solid rgba(201,168,76,.3);padding-bottom:2px;
+  transition:border-color .2s,color .2s;
+}
+.proj-link:hover{color:var(--cream);border-color:var(--cream)}
+
 /* ─── LANGUAGES ─── */
 .lang-section{background:var(--dark)}
 .lang-wrap{max-width:1300px;margin:0 auto;padding:0 3rem}
@@ -555,6 +594,7 @@ footer{
 @media(max-width:960px){
   .about-wrap{grid-template-columns:1fr;gap:3rem}
   .vol-grid{grid-template-columns:1fr 1fr}
+  .proj-grid{grid-template-columns:1fr 1fr}
   .skills-layout{grid-template-columns:1fr}
   .lang-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr;gap:3rem}
@@ -570,6 +610,7 @@ footer{
   .hero-scroll{bottom:2rem}
   .timeline{padding-left:2rem}
   .vol-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
   .experience-wrap,.skills-wrap,.lang-wrap,.contact-wrap{padding:0 1.5rem}
   .contact-wrap{padding-top:5rem;padding-bottom:5rem}
   .edu-inner{padding:1.75rem}
@@ -595,6 +636,7 @@ footer{
     <li><a href="#about" class="nav-link">About</a></li>
     <li><a href="#education" class="nav-link">Education</a></li>
     <li><a href="#experience" class="nav-link">Experience</a></li>
+    <li><a href="#projects" class="nav-link">Projects</a></li>
     <li><a href="#skills" class="nav-link">Skills</a></li>
     <li><a href="#contact" class="nav-link">Contact</a></li>
   </ul>
@@ -608,6 +650,7 @@ footer{
   <a href="#about" class="mob-link">About</a>
   <a href="#education" class="mob-link">Education</a>
   <a href="#experience" class="mob-link">Experience</a>
+  <a href="#projects" class="mob-link">Projects</a>
   <a href="#skills" class="mob-link">Skills</a>
   <a href="#contact" class="mob-link">Contact</a>
 </div>
@@ -619,6 +662,7 @@ footer{
   <button class="scroll-dot" data-target="education" title="Education"></button>
   <button class="scroll-dot" data-target="experience" title="Experience"></button>
   <button class="scroll-dot" data-target="volunteer" title="Volunteer"></button>
+  <button class="scroll-dot" data-target="projects" title="Projects"></button>
   <button class="scroll-dot" data-target="skills" title="Skills"></button>
   <button class="scroll-dot" data-target="languages" title="Languages"></button>
   <button class="scroll-dot" data-target="contact" title="Contact"></button>
@@ -842,11 +886,117 @@ footer{
 
 <hr class="section-divider-full-dark">
 
+<!-- ═══ PROJECTS ═══ -->
+<div id="projects" style="background:var(--dark);padding:7rem 0">
+  <div style="max-width:1300px;margin:0 auto;padding:0 3rem">
+    <div class="sec-marker reveal">
+      <span class="sec-num sec-num-light">05.</span>
+      <div class="sec-divider sec-divider-light"></div>
+      <span class="sec-label sec-label-light">Projects</span>
+    </div>
+    <div class="proj-grid stagger-children">
+
+      <!-- 01 Smart Academic Management System -->
+      <div class="proj-card">
+        <div class="proj-number">+ 01</div>
+        <div class="proj-title">Smart Academic Management System</div>
+        <div class="proj-tech">
+          <span class="proj-tech-tag">Django</span>
+          <span class="proj-tech-tag">Python</span>
+          <span class="proj-tech-tag">SQLite</span>
+          <span class="proj-tech-tag">PythonAnywhere</span>
+        </div>
+        <ul class="proj-bullets">
+          <li>Full-stack web app to manage students, courses, and registrations with CRUD operations</li>
+          <li>Role-based authentication (admin vs regular users), deployed live</li>
+        </ul>
+        <a href="https://hira777.pythonanywhere.com" target="_blank" rel="noopener" class="proj-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          Live Demo
+        </a>
+      </div>
+
+      <!-- 02 Home Lab IT Environment -->
+      <div class="proj-card">
+        <div class="proj-number">+ 02</div>
+        <div class="proj-title">Home Lab IT Environment</div>
+        <div class="proj-tech">
+          <span class="proj-tech-tag">VirtualBox</span>
+          <span class="proj-tech-tag">Windows Server 2019</span>
+          <span class="proj-tech-tag">Active Directory</span>
+        </div>
+        <ul class="proj-bullets">
+          <li>Built virtual lab simulating corporate IT: Active Directory, user accounts, group policies</li>
+          <li>Configured file sharing, printer services, network drives; practiced password resets and troubleshooting</li>
+        </ul>
+      </div>
+
+      <!-- 03 IT Help Desk Ticketing System -->
+      <div class="proj-card">
+        <div class="proj-number">+ 03</div>
+        <div class="proj-title">IT Help Desk Ticketing System</div>
+        <div class="proj-tech">
+          <span class="proj-tech-tag">Python</span>
+        </div>
+        <ul class="proj-bullets">
+          <li>Built ticket tracking system with creation, assignment, status tracking, and priority levels</li>
+          <li>Added search and reporting features; applied ITIL framework concepts</li>
+        </ul>
+      </div>
+
+      <!-- 04 Soccer League Database -->
+      <div class="proj-card">
+        <div class="proj-number">+ 04</div>
+        <div class="proj-title">Soccer League Database</div>
+        <div class="proj-tech">
+          <span class="proj-tech-tag">Oracle SQL</span>
+          <span class="proj-tech-tag">Oracle APEX</span>
+        </div>
+        <ul class="proj-bullets">
+          <li>Designed normalized (3NF) relational database with 6 tables and ERD</li>
+          <li>Wrote 10 analytical SQL queries: joins, subqueries, aggregate functions</li>
+        </ul>
+      </div>
+
+      <!-- 05 PC Hardware Assembly & Troubleshooting Guide -->
+      <div class="proj-card">
+        <div class="proj-number">+ 05</div>
+        <div class="proj-title">PC Hardware Assembly &amp; Troubleshooting Guide</div>
+        <div class="proj-tech">
+          <span class="proj-tech-tag">Documentation</span>
+        </div>
+        <ul class="proj-bullets">
+          <li>Disassembled/reassembled PC; created troubleshooting flowcharts for hardware issues</li>
+          <li>Documented step-by-step procedures with photos for RAM, HDD, thermal paste</li>
+        </ul>
+      </div>
+
+      <!-- 06 Movie Trailer Website -->
+      <div class="proj-card">
+        <div class="proj-number">+ 06</div>
+        <div class="proj-title">Movie Trailer Website</div>
+        <div class="proj-tech">
+          <span class="proj-tech-tag">HTML5</span>
+          <span class="proj-tech-tag">CSS</span>
+          <span class="proj-tech-tag">JavaScript</span>
+        </div>
+        <ul class="proj-bullets">
+          <li>3-page site with trailers, validated registration form, HTML5 Canvas banner</li>
+          <li>Deployed on local Abyss Web Server</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider-full-dark">
+
 <!-- ═══ SKILLS ═══ -->
 <div id="skills" style="background:var(--cream);padding:7rem 0">
   <div class="skills-wrap">
     <div class="sec-marker reveal">
-      <span class="sec-num">05.</span>
+      <span class="sec-num">06.</span>
       <div class="sec-divider"></div>
       <span class="sec-label">Technical &amp; Professional Skills</span>
     </div>
@@ -887,7 +1037,7 @@ footer{
 <div id="languages" class="lang-section" style="padding:7rem 0">
   <div class="lang-wrap">
     <div class="sec-marker reveal">
-      <span class="sec-num sec-num-light">06.</span>
+      <span class="sec-num sec-num-light">07.</span>
       <div class="sec-divider sec-divider-light"></div>
       <span class="sec-label sec-label-light">Languages</span>
     </div>
@@ -1293,7 +1443,7 @@ document.querySelectorAll('.mob-link').forEach(a => {
 });
 
 // Scroll dots
-const DOT_SECTIONS = ['hero','about','education','experience','volunteer','skills','languages','contact'];
+const DOT_SECTIONS = ['hero','about','education','experience','volunteer','projects','skills','languages','contact'];
 const dots = document.querySelectorAll('.scroll-dot');
 dots.forEach(dot => {
   dot.addEventListener('click', () => {
